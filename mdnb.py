@@ -59,7 +59,8 @@ class MdNb():
             elif context == CodeBlock:
                 if source[i].startswith('```'):
                     cur += source[i]; output = None
-                    if source[i+1].startswith('::: {.output'):
+                    if len(source) > i+1 and \
+                                source[i+1].startswith('::: {.output'):
                         i += 1; output = ""
                         while i < len(source) and source[i] != ':::\n':
                             output += source[i]; i += 1
